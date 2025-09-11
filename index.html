@@ -281,30 +281,29 @@
   <div class="content">
     <div class="page-title">
       <h1>刊行物一覧</h1>
-      <p>境界を越える物語たち</p>
     </div>
 
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterBooks('all')">すべて</button>
-      <button class="filter-btn" onclick="filterBooks('fiction')">小説</button>
-      <button class="filter-btn" onclick="filterBooks('mystery')">ミステリー</button>
-      <button class="filter-btn" onclick="filterBooks('philosophy')">哲学</button>
-      <button class="filter-btn" onclick="filterBooks('poetry')">詩集</button>
+      <button class="filter-btn" onclick="filterBooks('fiction')">論文</button>
+      <button class="filter-btn" onclick="filterBooks('mystery')">小説</button>
+      <button class="filter-btn" onclick="filterBooks('philosophy')">エッセイ</button>
+      <button class="filter-btn" onclick="filterBooks('poetry')">写真集</button>
     </div>
 
     <div class="books-grid" id="booksGrid">
       <!-- Book 1 -->
       <div class="book-card" data-genre="fiction">
         <div class="book-cover">
-          <img src="gazou/book1.jpg" alt="境界線の向こう側" onerror="this.style.display='none'; this.parentElement.innerHTML='境界線の<br>向こう側';">
+          <img src="gazou/hyoushi2.jpg" alt="美術の穴" onerror="this.style.display='none'; this.parentElement.innerHTML='境界線の<br>向こう側';">
         </div>
         <div class="book-info">
           <h3 class="book-title">境界線の向こう側</h3>
-          <p class="book-author">著者: 狭間 太郎</p>
-          <p class="book-description">現実と虚構の境界が曖昧になる不思議な町を舞台に、主人公が自分自身の存在について問い直す哲学的な物語。読者もまた、何が真実なのかを見極めることができなくなる。</p>
+          <p class="book-author">著者: 乾　真紀子</p>
+          <p class="book-description">美術鑑賞の新常識を提唱する、狭間書房の初回出版作品。10万部突破のベストセラー作品。</p>
           <div class="book-meta">
             <span class="book-price">¥1,800</span>
-            <span class="book-genre">小説</span>
+            <span class="book-genre">論文</span>
           </div>
         </div>
       </div>
@@ -312,15 +311,15 @@
       <!-- Book 2 -->
       <div class="book-card" data-genre="mystery">
         <div class="book-cover">
-          画像位置
+           <img src="gazou/hyoushi3.jpg" alt="RPGさんぽ入門">
         </div>
         <div class="book-info">
-          <h3 class="book-title">消失点への回廊</h3>
-          <p class="book-author">著者: 影山 静香</p>
-          <p class="book-description">美術館で起きた連続失踪事件を追う探偵の物語。しかし調査が進むにつれ、探偵自身の記憶が曖昧になっていく。果たして彼は事件を解決できるのか、それとも次の被害者になるのか。</p>
+          <h3 class="book-title">RPGさんぽ入門</h3>
+          <p class="book-author">著者: らんたな</p>
+          <p class="book-description">壊せそうな壁、コインが出てきそうなランプ、終盤にならないと進めないエリア…！？これを読めばあなたのさんぽイメージが覆る！さぁ、出かけよう！</p>
           <div class="book-meta">
             <span class="book-price">¥1,650</span>
-            <span class="book-genre">ミステリー</span>
+            <span class="book-genre">論文</span>
           </div>
         </div>
       </div>
@@ -328,15 +327,15 @@
       <!-- Book 3 -->
       <div class="book-card" data-genre="philosophy">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi4.jpg" alt="コンクールとコンテスト">
         </div>
         <div class="book-info">
-          <h3 class="book-title">時間の檻</h3>
-          <p class="book-author">著者: 久遠 哲也</p>
-          <p class="book-description">時間の本質について考察した哲学エッセイ。過去・現在・未来という概念そのものを問い直し、読者に時間に対する新たな視点を提供する革新的な一冊。</p>
+          <h3 class="book-title">コンクールとコンテスト</h3>
+          <p class="book-author">著者: 石田　まゆこ</p>
+          <p class="book-description">ここは鈴風高校。吹奏楽部部長の誠と美術部部長の綾香は幼馴染。しかしある日突然誠が放った一言で大事件が勃発するー？！</p>
           <div class="book-meta">
             <span class="book-price">¥2,200</span>
-            <span class="book-genre">哲学</span>
+            <span class="book-genre">小説</span>
           </div>
         </div>
       </div>
@@ -344,15 +343,15 @@
       <!-- Book 4 -->
       <div class="book-card" data-genre="poetry">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi5.jpg" alt="鳥の目 虫の目 魚の目">
         </div>
         <div class="book-info">
-          <h3 class="book-title">静寂の詩</h3>
-          <p class="book-author">著者: 月野 詩織</p>
-          <p class="book-description">言葉にならない感情を繊細な表現で綴った詩集。静寂の中に響く内なる声を、美しい日本語で表現した珠玉の作品集。心の奥底に眠る記憶を呼び覚ます。</p>
+          <h3 class="book-title">鳥の目 虫の目 魚の目</h3>
+          <p class="book-author">著者: Joen Doe</p>
+          <p class="book-description">「プロデュース力は一人旅で育つ」。アメリカの経済学者、ジョン・ドゥが提唱するの全てがこの一冊に。</p>
           <div class="book-meta">
             <span class="book-price">¥1,400</span>
-            <span class="book-genre">詩集</span>
+            <span class="book-genre">論文</span>
           </div>
         </div>
       </div>
@@ -360,15 +359,15 @@
       <!-- Book 5 -->
       <div class="book-card" data-genre="fiction">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi6.jpg" alt="やり切る力の育て方">
         </div>
         <div class="book-info">
-          <h3 class="book-title">記憶の迷宮</h3>
-          <p class="book-author">著者: 森下 亮介</p>
-          <p class="book-description">記憶を失った主人公が、自分の過去を探る旅に出る物語。しかし見つかる手がかりは、すべて矛盾に満ちている。真実の記憶とは何なのか、読者も一緒に謎を解き明かしていく。</p>
+          <h3 class="book-title">やり切る力の育て方</h3>
+          <p class="book-author">著者: 村上　茂雄</p>
+          <p class="book-description">やり切ることこそが第一に素晴らしい。「や〜めぴ」とならないためのたった3つの約束がここに。クリエイター必読の一冊！</p>
           <div class="book-meta">
             <span class="book-price">¥1,750</span>
-            <span class="book-genre">小説</span>
+            <span class="book-genre">エッセイ</span>
           </div>
         </div>
       </div>
@@ -376,15 +375,15 @@
       <!-- Book 6 -->
       <div class="book-card" data-genre="mystery">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi7.jpg" alt="What is Brown noise?">
         </div>
         <div class="book-info">
-          <h3 class="book-title">鏡の向こうの殺人</h3>
-          <p class="book-author">著者: 鏡野 探</p>
-          <p class="book-description">古い洋館で起きた密室殺人事件。しかし現場には被害者の姿が鏡にしか映っていない。現実と幻想が入り混じる中で、探偵は真相に辿り着くことができるのか。</p>
+          <h3 class="book-title">What is Brown noise?</h3>
+          <p class="book-author">著者: 青山　一</p>
+          <p class="book-description">何かと「生きづらさ」を感じることの多い時代。心と体と脳を全部リセットできる「ブラウンノイズ」とは？音源がダウンロードできるQRコードつき。</p>
           <div class="book-meta">
             <span class="book-price">¥1,680</span>
-            <span class="book-genre">ミステリー</span>
+            <span class="book-genre">論文</span>
           </div>
         </div>
       </div>
@@ -392,15 +391,15 @@
       <!-- Book 7 -->
       <div class="book-card" data-genre="philosophy">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi8.jpg" alt="ひのまる構図">
         </div>
         <div class="book-info">
-          <h3 class="book-title">存在の証明</h3>
-          <p class="book-author">著者: 在原 真理</p>
-          <p class="book-description">「私は存在している」ということをどうやって証明するのか。デカルトの「我思う、故に我あり」を現代的に解釈し直した、挑戦的な哲学書。</p>
+          <h3 class="book-title">ひのまる構図</h3>
+          <p class="book-author">写真: 陣内　鉄平</p>
+          <p class="book-description">SNSで人気沸騰中の有名フォトグラファー、陣内哲平が手掛ける「ひのまる構図」の抑えかた。写真を撮りたいけどないから始めたらいいかわからない方におすすめ！</p>
           <div class="book-meta">
             <span class="book-price">¥2,100</span>
-            <span class="book-genre">哲学</span>
+            <span class="book-genre">写真集</span>
           </div>
         </div>
       </div>
@@ -408,11 +407,11 @@
       <!-- Book 8 -->
       <div class="book-card" data-genre="fiction">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi9.jpg" alt="黒子を星座に">
         </div>
         <div class="book-info">
-          <h3 class="book-title">永遠への扉</h3>
-          <p class="book-author">著者: 時空 遥香</p>
+          <h3 class="book-title">黒子を星座に</h3>
+          <p class="book-author">著者: 熊井　かおる</p>
           <p class="book-description">時間を超越した愛の物語。異なる時代に生きる二人の魂が、時空を超えて繋がっていく幻想的なロマンス。過去と未来が交錯する美しい物語。</p>
           <div class="book-meta">
             <span class="book-price">¥1,850</span>
@@ -424,15 +423,15 @@
       <!-- Book 9 -->
       <div class="book-card" data-genre="poetry">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi10.jpg" alt="ARGさんぽ概説">
         </div>
         <div class="book-info">
           <h3 class="book-title">夜明け前の歌</h3>
-          <p class="book-author">著者: 暁 美咲</p>
-          <p class="book-description">希望と絶望の間で揺れ動く心を描いた詩集。夜の静寂から朝の光へと移りゆく時間の中で、人間の感情の機微を繊細に表現した現代詩の傑作。</p>
+          <p class="book-author">著者: らんたな</p>
+          <p class="book-description">狭間書房の大ヒット作「ARGさんぽ」シリーズ第二弾！「とうとう概説まで来てしまいました！次どうしよう！」（らんたな）</p>
           <div class="book-meta">
             <span class="book-price">¥1,500</span>
-            <span class="book-genre">詩集</span>
+            <span class="book-genre">写真集</span>
           </div>
         </div>
       </div>
@@ -440,31 +439,31 @@
       <!-- Book 10 -->
       <div class="book-card" data-genre="mystery">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi11.jpg" alt="日本の鏡スポット100">
         </div>
         <div class="book-info">
           <h3 class="book-title">最後の目撃者</h3>
-          <p class="book-author">著者: 目黒 司</p>
-          <p class="book-description">連続殺人事件の唯一の目撃者である少女。しかし彼女の証言は毎回異なっている。果たして真実を語っているのは誰なのか。記憶と現実の境界を問う心理サスペンス。</p>
+          <p class="book-author">写真: 髙橋　紘</p>
+          <p class="book-description">「鏡」に注目した世界初の写真集。そこに映るのは果たして虚偽か、真実か。</p>
           <div class="book-meta">
             <span class="book-price">¥1,720</span>
-            <span class="book-genre">ミステリー</span>
+            <span class="book-genre">写真集</span>
           </div>
         </div>
       </div>
 
       <!-- Book 11 -->
-      <div class="book-card" data-genre="fiction">
+      <div class="book-card" data-genre="mystery">
         <div class="book-cover">
-          画像位置
+           <img src="gazou/hyoushi15.jpg" alt="彼方の奏太">
         </div>
         <div class="book-info">
-          <h3 class="book-title">世界の終わりの図書館</h3>
-          <p class="book-author">著者: 書架 守人</p>
-          <p class="book-description">文明が崩壊した後の世界で、最後の図書館を守る司書の物語。失われた知識と記憶を未来に残そうとする人々の、静かで力強い希望の物語。</p>
+          <h3 class="book-title">彼方の奏太</h3>
+          <p class="book-author">著者: 大原　洋一</p>
+          <p class="book-description">時間にルーズになってきている＝態度が大きくなっているサインかも…！？脳科学の観点から「遅刻」について深掘りする。</p>
           <div class="book-meta">
-            <span class="book-price">¥1,950</span>
-            <span class="book-genre">小説</span>
+            <span class="book-price">¥1,650</span>
+            <span class="book-genre">論文</span>
           </div>
         </div>
       </div>
@@ -472,15 +471,15 @@
       <!-- Book 12 -->
       <div class="book-card" data-genre="philosophy">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi13.jpg" alt="遅刻しないために">
         </div>
         <div class="book-info">
-          <h3 class="book-title">虚無からの出発</h3>
-          <p class="book-author">著者: 無我 徹</p>
-          <p class="book-description">「無」とは何かを徹底的に考察した現代哲学書。存在しないものについて語ることの意味を問い、読者を深い思索の世界へと誘う挑戦的な作品。</p>
+          <h3 class="book-title">カレーのご飯は冷たい方が美味しい</h3>
+          <p class="book-author">著者: 高栁　凪</p>
+          <p class="book-description">「お団子の串途中で折れたらいいのに」「寝れないときは頭の向きを逆にするといい」生活の中で得た気づきをまとめたエッセイ集！</p>
           <div class="book-meta">
             <span class="book-price">¥2,300</span>
-            <span class="book-genre">哲学</span>
+            <span class="book-genre">エッセイ</span>
           </div>
         </div>
       </div>
@@ -488,15 +487,15 @@
       <!-- Book 13 -->
       <div class="book-card" data-genre="poetry">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi17.jpg" alt="Gateway of liminal">
         </div>
         <div class="book-info">
-          <h3 class="book-title">風の記憶</h3>
-          <p class="book-author">著者: 風野 詩音</p>
-          <p class="book-description">自然と人間の関係を詩的に描いた作品集。風に運ばれる記憶、季節の移ろい、生命の循環を美しい言葉で表現した、心に染み入る詩集。</p>
+          <h3 class="book-title">Gateway of liminal</h3>
+          <p class="book-author">著者: 内田　玲央</p>
+          <p class="book-description">近年注目が集まる「Liminal space」を集めた世界初の写真集。あなたもきっと「狭間」の虜になる。</p>
           <div class="book-meta">
             <span class="book-price">¥1,300</span>
-            <span class="book-genre">詩集</span>
+            <span class="book-genre">写真集</span>
           </div>
         </div>
       </div>
@@ -504,31 +503,31 @@
       <!-- Book 14 -->
       <div class="book-card" data-genre="fiction">
         <div class="book-cover">
-          画像位置
+          <img src="gazou/hyoushi14.jpg" alt="花火禁止区域ができるまで">
         </div>
         <div class="book-info">
-          <h3 class="book-title">夢の中の現実</h3>
-          <p class="book-author">著者: 夢野 幻</p>
-          <p class="book-description">夢と現実の境界が曖昧になった世界で生きる人々の物語。何が夢で何が現実なのか、読み進めるうちに読者自身も混乱していく不思議な小説。</p>
+          <h3 class="book-title">花火禁止区域ができるまで</h3>
+          <p class="book-author">著者: 日野　光</p>
+          <p class="book-description">全国の「花火禁止区域」10,000箇所をめぐるフィールドワークを通してわかったある共通点とは＿＿。</p>
           <div class="book-meta">
             <span class="book-price">¥1,800</span>
-            <span class="book-genre">小説</span>
+            <span class="book-genre">論文</span>
           </div>
         </div>
       </div>
 
       <!-- Book 15 -->
-      <div class="book-card" data-genre="mystery">
+     <div class="book-card" data-genre="mystery">
         <div class="book-cover">
-          画像位置
+           <img src="gazou/hyoushi15.jpg" alt="彼方の奏太">
         </div>
         <div class="book-info">
-          <h3 class="book-title">謎解きの向こう側</h3>
-          <p class="book-author">著者: 推理 名探偵</p>
-          <p class="book-description">完璧な推理小説のはずが、最後のページで全てが覆される。読者が探偵となって謎を解く参加型ミステリー。真の犯人は果たして誰なのか。</p>
+          <h3 class="book-title">彼方の奏太</h3>
+          <p class="book-author">著者: 大原　洋一</p>
+          <p class="book-description">時間にルーズになってきている＝態度が大きくなっているサインかも…！？脳科学の観点から「遅刻」について深掘りする。</p>
           <div class="book-meta">
-            <span class="book-price">¥1,750</span>
-            <span class="book-genre">ミステリー</span>
+            <span class="book-price">¥1,650</span>
+            <span class="book-genre">論文</span>
           </div>
         </div>
       </div>
