@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>刊行物 | 狭間書房</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #32a9cd;
+      font-family: "ヒラギノ角ゴシック", serif;
+      line-height: 1.8;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ヘッダー */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      background-color: #32a9cd;
+      color: #fff;
+    }
+    .title-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      border: none;
+    }
+    .subtitle {
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-size: 1em;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* 検索 */
+    .search {
+      display: flex;
+      align-items: center;
+    }
+    .search input {
+      padding: 4px;
+      border: 2px solid #003366;
+      border-radius: 4px;
+      width: 150px;
+      background-color: #fff;
+      color: #003366;
+    }
+    .search input::placeholder {
+      color: #003366aa;
+    }
+    .search button {
+      padding: 4px 6px;
+      margin-left: 4px;
+      border-radius: 4px;
+      border: none;
+      background-color: #003366;
+      color: #fff;
+      cursor: pointer;
+    }
+    .search button:hover {
+      background-color: #001f33;
+    }
+
+    /* ナビゲーション */
+    nav {
+      text-align: center;
+      padding: 1em 0;
+      background-color: #f0f0f0;
+    }
+    nav a {
+      color: #003366;
+      margin: 0 1em;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #32a9cd;
+    }
+    nav a.active {
+      color: #32a9cd;
+      border-bottom: 2px solid #32a9cd;
+    }
+
+    /* コンテンツ */
+    .content {
+      max-width: 1200px;
+      margin: 2em auto;
+      padding: 0 2em;
+    }
+
+    /* ページタイトル */
+    .page-title {
+      text-align: center;
+      margin: 2em 0 3em 0;
+      padding: 1em;
+      background: linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%);
+      border-radius: 8px;
+      border: 2px solid #32a9cd;
+    }
+    .page-title h1 {
+      color: #003366;
+      font-size: 2.5em;
+      margin: 0;
+      letter-spacing: 0.1em;
+    }
+    .page-title p {
+      color: #32a9cd;
+      font-size: 1.2em;
+      margin: 0.5em 0 0 0;
+    }
+
+    /* フィルター */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2em;
+      gap: 1em;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.5em 1em;
+      border: 2px solid #32a9cd;
+      background-color: #fff;
+      color: #32a9cd;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: #32a9cd;
+      color: #fff;
+    }
+
+    /* 書籍グリッド */
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2em;
+      margin: 2em 0;
+    }
+
+    /* 書籍カード */
+    .book-card {
+      display: flex;
+      background-color: #fafafa;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .book-cover {
+      flex-shrink: 0;
+      width: 120px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #003366;
+      font-weight: bold;
+      position: relative;
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+    }
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .book-info {
+      padding: 1.5em;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .book-title {
+      color: #003366;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin: 0 0 0.5em 0;
+      line-height: 1.3;
+    }
+    .book-author {
+      color: #32a9cd;
+      font-size: 1em;
+      margin: 0 0 1em 0;
+    }
+    .book-description {
+      color: #003366;
+      font-size: 0.9em;
+      line-height: 1.5;
+      margin: 0 0 1em 0;
+      flex-grow: 1;
+    }
+    .book-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 1em;
+      margin-top: auto;
+    }
+    .book-price {
+      color: #003366;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .book-genre {
+      background-color: #32a9cd;
+      color: #fff;
+      padding: 0.2em 0.6em;
+      border-radius: 12px;
+      font-size: 0.8em;
+    }
+
+    /* フッター */
+    footer {
+      background-color: #32a9cd;
+      color: #ffffff;
+      text-align: center;
+      padding: 1em;
+      margin-top: 3em;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 768px) {
+      .content {
+        padding: 0 1em;
+      }
+      .books-grid {
+        grid-template-columns: 1fr;
+      }
+      .book-card {
+        flex-direction: column;
+      }
+      .book-cover {
+        width: 100%;
+        height: 200px;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-wrapper">
+      <h1>狭間書房</h1>
+      <p class="subtitle">Hazama Publishing</p>
+    </div>
+    <div class="search">
+      <input type="text" id="searchInput" placeholder="キーワード入力">
+      <button onclick="searchSite()">検索</button>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">ホーム</a>
+    <a href="about.html">狭間書房について</a>
+    <a href="#" class="active">刊行物</a>
+    <a href="#">お問い合わせ</a>
+  </nav>
+
+  <div class="content">
+    <div class="page-title">
+      <h1>刊行物一覧</h1>
+      <p>境界を越える物語たち</p>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterBooks('all')">すべて</button>
+      <button class="filter-btn" onclick="filterBooks('fiction')">小説</button>
+      <button class="filter-btn" onclick="filterBooks('mystery')">ミステリー</button>
+      <button class="filter-btn" onclick="filterBooks('philosophy')">哲学</button>
+      <button class="filter-btn" onclick="filterBooks('poetry')">詩集</button>
+    </div>
+
+    <div class="books-grid" id="booksGrid">
+      <!-- Book 1 -->
+      <div class="book-card" data-genre="fiction">
+        <div class="book-cover">
+          <img src="gazou/book1.jpg" alt="境界線の向こう側" onerror="this.style.display='none'; this.parentElement.innerHTML='境界線の<br>向こう側';">
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">境界線の向こう側</h3>
+          <p class="book-author">著者: 狭間 太郎</p>
+          <p class="book-description">現実と虚構の境界が曖昧になる不思議な町を舞台に、主人公が自分自身の存在について問い直す哲学的な物語。読者もまた、何が真実なのかを見極めることができなくなる。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,800</span>
+            <span class="book-genre">小説</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="book-card" data-genre="mystery">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">消失点への回廊</h3>
+          <p class="book-author">著者: 影山 静香</p>
+          <p class="book-description">美術館で起きた連続失踪事件を追う探偵の物語。しかし調査が進むにつれ、探偵自身の記憶が曖昧になっていく。果たして彼は事件を解決できるのか、それとも次の被害者になるのか。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,650</span>
+            <span class="book-genre">ミステリー</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="book-card" data-genre="philosophy">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">時間の檻</h3>
+          <p class="book-author">著者: 久遠 哲也</p>
+          <p class="book-description">時間の本質について考察した哲学エッセイ。過去・現在・未来という概念そのものを問い直し、読者に時間に対する新たな視点を提供する革新的な一冊。</p>
+          <div class="book-meta">
+            <span class="book-price">¥2,200</span>
+            <span class="book-genre">哲学</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 4 -->
+      <div class="book-card" data-genre="poetry">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">静寂の詩</h3>
+          <p class="book-author">著者: 月野 詩織</p>
+          <p class="book-description">言葉にならない感情を繊細な表現で綴った詩集。静寂の中に響く内なる声を、美しい日本語で表現した珠玉の作品集。心の奥底に眠る記憶を呼び覚ます。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,400</span>
+            <span class="book-genre">詩集</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 5 -->
+      <div class="book-card" data-genre="fiction">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">記憶の迷宮</h3>
+          <p class="book-author">著者: 森下 亮介</p>
+          <p class="book-description">記憶を失った主人公が、自分の過去を探る旅に出る物語。しかし見つかる手がかりは、すべて矛盾に満ちている。真実の記憶とは何なのか、読者も一緒に謎を解き明かしていく。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,750</span>
+            <span class="book-genre">小説</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 6 -->
+      <div class="book-card" data-genre="mystery">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">鏡の向こうの殺人</h3>
+          <p class="book-author">著者: 鏡野 探</p>
+          <p class="book-description">古い洋館で起きた密室殺人事件。しかし現場には被害者の姿が鏡にしか映っていない。現実と幻想が入り混じる中で、探偵は真相に辿り着くことができるのか。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,680</span>
+            <span class="book-genre">ミステリー</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 7 -->
+      <div class="book-card" data-genre="philosophy">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">存在の証明</h3>
+          <p class="book-author">著者: 在原 真理</p>
+          <p class="book-description">「私は存在している」ということをどうやって証明するのか。デカルトの「我思う、故に我あり」を現代的に解釈し直した、挑戦的な哲学書。</p>
+          <div class="book-meta">
+            <span class="book-price">¥2,100</span>
+            <span class="book-genre">哲学</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 8 -->
+      <div class="book-card" data-genre="fiction">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">永遠への扉</h3>
+          <p class="book-author">著者: 時空 遥香</p>
+          <p class="book-description">時間を超越した愛の物語。異なる時代に生きる二人の魂が、時空を超えて繋がっていく幻想的なロマンス。過去と未来が交錯する美しい物語。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,850</span>
+            <span class="book-genre">小説</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 9 -->
+      <div class="book-card" data-genre="poetry">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">夜明け前の歌</h3>
+          <p class="book-author">著者: 暁 美咲</p>
+          <p class="book-description">希望と絶望の間で揺れ動く心を描いた詩集。夜の静寂から朝の光へと移りゆく時間の中で、人間の感情の機微を繊細に表現した現代詩の傑作。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,500</span>
+            <span class="book-genre">詩集</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 10 -->
+      <div class="book-card" data-genre="mystery">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">最後の目撃者</h3>
+          <p class="book-author">著者: 目黒 司</p>
+          <p class="book-description">連続殺人事件の唯一の目撃者である少女。しかし彼女の証言は毎回異なっている。果たして真実を語っているのは誰なのか。記憶と現実の境界を問う心理サスペンス。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,720</span>
+            <span class="book-genre">ミステリー</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 11 -->
+      <div class="book-card" data-genre="fiction">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">世界の終わりの図書館</h3>
+          <p class="book-author">著者: 書架 守人</p>
+          <p class="book-description">文明が崩壊した後の世界で、最後の図書館を守る司書の物語。失われた知識と記憶を未来に残そうとする人々の、静かで力強い希望の物語。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,950</span>
+            <span class="book-genre">小説</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 12 -->
+      <div class="book-card" data-genre="philosophy">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">虚無からの出発</h3>
+          <p class="book-author">著者: 無我 徹</p>
+          <p class="book-description">「無」とは何かを徹底的に考察した現代哲学書。存在しないものについて語ることの意味を問い、読者を深い思索の世界へと誘う挑戦的な作品。</p>
+          <div class="book-meta">
+            <span class="book-price">¥2,300</span>
+            <span class="book-genre">哲学</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 13 -->
+      <div class="book-card" data-genre="poetry">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">風の記憶</h3>
+          <p class="book-author">著者: 風野 詩音</p>
+          <p class="book-description">自然と人間の関係を詩的に描いた作品集。風に運ばれる記憶、季節の移ろい、生命の循環を美しい言葉で表現した、心に染み入る詩集。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,300</span>
+            <span class="book-genre">詩集</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 14 -->
+      <div class="book-card" data-genre="fiction">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">夢の中の現実</h3>
+          <p class="book-author">著者: 夢野 幻</p>
+          <p class="book-description">夢と現実の境界が曖昧になった世界で生きる人々の物語。何が夢で何が現実なのか、読み進めるうちに読者自身も混乱していく不思議な小説。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,800</span>
+            <span class="book-genre">小説</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 15 -->
+      <div class="book-card" data-genre="mystery">
+        <div class="book-cover">
+          画像位置
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">謎解きの向こう側</h3>
+          <p class="book-author">著者: 推理 名探偵</p>
+          <p class="book-description">完璧な推理小説のはずが、最後のページで全てが覆される。読者が探偵となって謎を解く参加型ミステリー。真の犯人は果たして誰なのか。</p>
+          <div class="book-meta">
+            <span class="book-price">¥1,750</span>
+            <span class="book-genre">ミステリー</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 狭間書房</p>
+  </footer>
+
+  <script>
+    // 検索機能
+    const hiddenKeywords = [
+      {keyword: "社員名簿", url: "https://hazamashobo.github.io/meibo/"},
+      {keyword: "テスト", url: "https://www.youtube.com/watch?v=W3oN4-NVvhc"}
+    ];
+
+    function searchSite() {
+      const input = document.getElementById('searchInput').value.trim();
+      if(!input) return;
+      const found = hiddenKeywords.find(k=>k.keyword===input);
+      if(found) location.href = found.url;
+    }
+
+    // フィルター機能
+    function filterBooks(genre) {
+      const cards = document.querySelectorAll('.book-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+      
+      // ボタンのアクティブ状態を更新
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // カードの表示/非表示を切り替え
+      cards.forEach(card => {
+        if (genre === 'all' || card.dataset.genre === genre) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
