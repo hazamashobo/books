@@ -262,12 +262,14 @@
 <body>
   <header>
     <div class="title-wrapper">
-      <h1>狭間書房</h1>
-      <p class="subtitle">Hazama Publishing</p>
-    </div>
-    <div class="search">
-      <input type="text" id="searchInput" placeholder="キーワード入力">
-      <button onclick="searchSite()">検索</button>
+    <h1>狭間書房</h1>
+    <p class="subtitle">Hazama Publishing</p>
+  </div>
+  <div class="search">
+      <form action="https://hazamashobo.github.io/result/" method="get">
+        <input type="text" id="searchInput" name="q" placeholder="キーワード入力">
+        <button type="submit">検索</button>
+      </form>
     </div>
   </header>
 
@@ -539,19 +541,6 @@
   </footer>
 
   <script>
-    // 検索機能
-    const hiddenKeywords = [
-      {keyword: "社員名簿", url: "https://hazamashobo.github.io/meibo/"},
-      {keyword: "テスト", url: "https://www.youtube.com/watch?v=W3oN4-NVvhc"}
-    ];
-
-    function searchSite() {
-      const input = document.getElementById('searchInput').value.trim();
-      if(!input) return;
-      const found = hiddenKeywords.find(k=>k.keyword===input);
-      if(found) location.href = found.url;
-    }
-
     // フィルター機能
     function filterBooks(genre) {
       const cards = document.querySelectorAll('.book-card');
