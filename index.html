@@ -163,6 +163,9 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
+    .book-card.clickable {
+      cursor: pointer;
+    }
 
     .book-cover {
       flex-shrink: 0;
@@ -318,7 +321,7 @@
         <div class="book-info">
           <h3 class="book-title">RPGさんぽ入門</h3>
           <p class="book-author">著者: らんたな</p>
-          <p class="book-description">壊せそうな壁、コインが出てきそうなランプ、終盤にならないと進めないエリア…！？これを読めばあなたのさんぽイメージが覆る！さぁ、出かけよう！</p>
+          <p class="book-description">壊せそうな壁、コインが出てきそうなランプ、終盤にならないと進めないエリア…!?これを読めばあなたのさんぽイメージが覆る!さあ、出かけよう!</p>
           <div class="book-meta">
             <span class="book-price">¥1,650</span>
             <span class="book-genre">論文</span>
@@ -334,7 +337,7 @@
         <div class="book-info">
           <h3 class="book-title">コンクールとコンテスト</h3>
           <p class="book-author">著者: 石田　まゆこ</p>
-          <p class="book-description">ここは鈴風高校。吹奏楽部部長の誠と美術部部長の綾香は幼馴染。しかしある日突然誠が放った一言で大事件が勃発するー？！</p>
+          <p class="book-description">ここは鈴風高校。吹奏楽部部長の誠と美術部部長の綾香は幼馴染。しかしある日突然誠が放った一言で大事件が勃発するー!?</p>
           <div class="book-meta">
             <span class="book-price">¥2,200</span>
             <span class="book-genre">小説</span>
@@ -358,15 +361,15 @@
         </div>
       </div>
 
-      <!-- Book 5 -->
-      <div class="book-card" data-genre="essei">
+      <!-- Book 5 - やり切る力の育て方 (クリック可能) -->
+      <div class="book-card clickable" data-genre="essei" id="yarikiru-book" onclick="countClick()">
         <div class="book-cover">
           <img src="gazou/hyoushi6.png" alt="やり切る力の育て方">
         </div>
         <div class="book-info">
           <h3 class="book-title">やり切る力の育て方</h3>
           <p class="book-author">著者: 村上　茂雄</p>
-          <p class="book-description">やり切ることこそが第一に素晴らしい。「や〜めぴ」とならないためのたった3つの約束がここに。クリエイター必読の一冊！</p>
+          <p class="book-description">やり切ること"こそが第一に素晴らしい。「や~めぴ」とならないためのたった3つの約束がここに。クリエイター必読の一冊!</p>
           <div class="book-meta">
             <span class="book-price">¥1,750</span>
             <span class="book-genre">エッセイ</span>
@@ -382,7 +385,7 @@
         <div class="book-info">
           <h3 class="book-title">What is Brown noise?</h3>
           <p class="book-author">著者: 青山　一</p>
-          <p class="book-description">何かと「生きづらさ」を感じることの多い時代。心と体と脳を全部リセットできる「ブラウンノイズ」とは？音源がダウンロードできるQRコードつき。</p>
+          <p class="book-description">何かと「生きづらさ」を感じることの多い時代。心と体と脳を全部リセットできる「ブラウンノイズ」とは?音源がダウンロードできるQRコードつき。</p>
           <div class="book-meta">
             <span class="book-price">¥1,680</span>
             <span class="book-genre">論文</span>
@@ -398,7 +401,7 @@
         <div class="book-info">
           <h3 class="book-title">ひのまる構図</h3>
           <p class="book-author">写真: 陣内　鉄平</p>
-          <p class="book-description">SNSで人気沸騰中の有名フォトグラファー、陣内哲平が手掛ける「ひのまる構図」の抑えかた。写真を撮りたいけどないから始めたらいいかわからない方におすすめ！</p>
+          <p class="book-description">SNSで人気沸騰中の有名フォトグラファー、陣内哲平が手掛ける「ひのまる構図」の抑えかた。写真を撮りたいけどないから始めたらいいかわからない方におすすめ!</p>
           <div class="book-meta">
             <span class="book-price">¥2,100</span>
             <span class="book-genre">写真集</span>
@@ -430,7 +433,7 @@
         <div class="book-info">
           <h3 class="book-title">RPGさんぽ概説</h3>
           <p class="book-author">著者: らんたな</p>
-          <p class="book-description">狭間書房の大ヒット作「ARGさんぽ」シリーズ第二弾！「とうとう概説まで来てしまいました！次どうしよう！」（らんたな）</p>
+          <p class="book-description">狭間書房の大ヒット作「ARGさんぽ」シリーズ第二弾!「とうとう概説まで来てしまいました!次どうしよう!」(らんたな)</p>
           <div class="book-meta">
             <span class="book-price">¥1,500</span>
             <span class="book-genre">写真集</span>
@@ -441,12 +444,12 @@
       <!-- Book 10 -->
       <div class="book-card" data-genre="photo">
         <div class="book-cover">
-          <img src="gazou/hyoushi11.png" alt="日本の鏡スポット">
+          <img src="gazou/hyoushi11.png" alt="日本の顔スポット">
         </div>
         <div class="book-info">
-          <h3 class="book-title">日本の鏡スポット</h3>
+          <h3 class="book-title">日本の顔スポット</h3>
           <p class="book-author">写真: 髙橋　紘</p>
-          <p class="book-description">「鏡」に注目した世界初の写真集。そこに映るのは果たして虚偽か、真実か。</p>
+          <p class="book-description">「顔」に注目した世界初の写真集。そこに映るのは果たして虚偽か、真実か。</p>
           <div class="book-meta">
             <span class="book-price">¥1,720</span>
             <span class="book-genre">写真集</span>
@@ -457,12 +460,12 @@
       <!-- Book 11 -->
       <div class="book-card" data-genre="shosetu">
         <div class="book-cover">
-           <img src="gazou/hyoushi15.png" alt="彼方の奏太">
+           <img src="gazou/hyoushi15.png" alt="彼方の奥太">
         </div>
         <div class="book-info">
-          <h3 class="book-title">彼方の奏太</h3>
+          <h3 class="book-title">彼方の奥太</h3>
           <p class="book-author">著者: 相原　龍</p>
-          <p class="book-description">突如湖の中から現れた球体に吸い込まれた友人の奏太。そのまま10年間行方不明となっていたがある日偶然電車で再会を果たす。彼は本当に奏太なのだろうか。</p>
+          <p class="book-description">突如湖の中から現れた球体に吸い込まれた友人の奥太。そのまま10年間行方不明となっていたがある日偶然電車で再会を果たす。彼は本当に奥太なのだろうか。</p>
           <div class="book-meta">
             <span class="book-price">¥1,650</span>
             <span class="book-genre">小説</span>
@@ -477,8 +480,8 @@
         </div>
         <div class="book-info">
           <h3 class="book-title">カレーのご飯は冷たい方が美味しい</h3>
-          <p class="book-author">著者: 高栁　凪</p>
-          <p class="book-description">「お団子の串途中で折れたらいいのに」「寝れないときは頭の向きを逆にするといい」生活の中で得た気づきをまとめたエッセイ集！</p>
+          <p class="book-author">著者: 高木　凪</p>
+          <p class="book-description">「お団子の串途中で折れたらいいのに」「寝れないときは頭の向きを逆にするといい」生活の中で得た気づきをまとめたエッセイ集!</p>
           <div class="book-meta">
             <span class="book-price">¥2,300</span>
             <span class="book-genre">エッセイ</span>
@@ -510,7 +513,7 @@
         <div class="book-info">
           <h3 class="book-title">花火禁止区域ができるまで</h3>
           <p class="book-author">著者: 日野　光</p>
-          <p class="book-description">全国の「花火禁止区域」10,000箇所をめぐるフィールドワークを通してわかったある共通点とは＿＿。</p>
+          <p class="book-description">全国の「花火禁止区域」10,000箇所をめぐるフィールドワークを通してわかったある共通点とは__。</p>
           <div class="book-meta">
             <span class="book-price">¥1,800</span>
             <span class="book-genre">論文</span>
@@ -526,7 +529,7 @@
         <div class="book-info">
           <h3 class="book-title">遅刻しないために</h3>
           <p class="book-author">著者: 大原　洋一</p>
-          <p class="book-description">時間にルーズになってきている＝態度が大きくなっているサインかも…！？脳科学の観点から「遅刻」について深掘りする。</p>
+          <p class="book-description">時間にルーズになってきている!態度が大きくなっているサインかも…!?脳科学の観点から「遅刻」について深掘りする。</p>
           <div class="book-meta">
             <span class="book-price">¥1,650</span>
             <span class="book-genre">論文</span>
@@ -541,6 +544,18 @@
   </footer>
 
   <script>
+    let clickCount = 0;
+
+    // やり切る力の育て方のクリックカウント
+    function countClick() {
+      clickCount++;
+      console.log(`クリック回数: ${clickCount}`);
+      
+      if (clickCount >= 5) {
+        window.location.href = 'https://hazamashobo.github.io/door/index.html';
+      }
+    }
+
     // フィルター機能
     function filterBooks(genre) {
       const cards = document.querySelectorAll('.book-card');
