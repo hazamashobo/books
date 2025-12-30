@@ -2,15 +2,24 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>刊行物 | Hazama Publishing</title>
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       background-color: #ffffff;
       color: #32a9cd;
-      font-family: "ヒラギノ角ゴシック", serif;
+      font-family: "ヒラギノ角ゴシック", sans-serif;
       line-height: 1.8;
-      margin: 0;
-      padding: 0;
+      display: flex;
+      flex-direction: column;
     }
 
     /* ヘッダー */
@@ -21,22 +30,26 @@
       padding: 1em 2em;
       background-color: #32a9cd;
       color: #fff;
+      flex-shrink: 0;
+      gap: 2em;
+      box-sizing: border-box;
+      width: 100%;
     }
     .title-wrapper {
       display: flex;
       flex-direction: column;
     }
     .title-wrapper a {
-  text-decoration: none;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-}
-.title-wrapper a:hover h1 {
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .title-wrapper a:hover h1 {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
     header h1 {
       margin: 0;
       font-size: 3em;
@@ -59,6 +72,14 @@
     .search {
       display: flex;
       align-items: center;
+      gap: 0.5em;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+    .search form {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
     }
     .search input {
       padding: 4px;
@@ -73,12 +94,13 @@
     }
     .search button {
       padding: 4px 6px;
-      margin-left: 4px;
       border-radius: 4px;
       border: none;
       background-color: #003366;
       color: #fff;
       cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .search button:hover {
       background-color: #001f33;
@@ -89,12 +111,18 @@
       text-align: center;
       padding: 1em 0;
       background-color: #f0f0f0;
+      flex-shrink: 0;
+      overflow-x: auto;
+      box-sizing: border-box;
+      width: 100%;
     }
     nav a {
       color: #003366;
       margin: 0 1em;
       text-decoration: none;
       font-weight: bold;
+      display: inline-block;
+      white-space: nowrap;
     }
     nav a:hover {
       color: #32a9cd;
@@ -109,6 +137,9 @@
       max-width: 1200px;
       margin: 2em auto;
       padding: 0 2em;
+      flex: 1;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     /* ページタイトル */
@@ -148,6 +179,7 @@
       border-radius: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-weight: bold;
     }
     .filter-btn:hover,
     .filter-btn.active {
@@ -175,8 +207,6 @@
     .book-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    .book-card.clickable {
     }
 
     .book-cover {
@@ -250,26 +280,162 @@
       color: #ffffff;
       text-align: center;
       padding: 1em;
-      margin-top: 3em;
+      flex-shrink: 0;
+      margin-top: auto;
+      box-sizing: border-box;
+      width: 100%;
     }
 
     /* レスポンシブ */
     @media (max-width: 768px) {
+      header {
+        padding: 1em;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        gap: 1em;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      .title-wrapper {
+        width: 100%;
+      }
+
+      .search {
+        width: 100%;
+      }
+
+      .search form {
+        width: 100%;
+        display: flex;
+      }
+
+      .search input {
+        width: 100%;
+        flex: 1;
+      }
+
+      nav a {
+        margin: 0 0.5em;
+        font-size: 0.9em;
+      }
+
       .content {
         padding: 0 1em;
+        margin: 1em auto;
       }
+
+      .page-title {
+        margin: 1em 0;
+        padding: 1em;
+      }
+
+      .page-title h1 {
+        font-size: 1.8em;
+      }
+
+      .page-title p {
+        font-size: 1em;
+      }
+
       .books-grid {
         grid-template-columns: 1fr;
+        gap: 1.5em;
       }
+
       .book-card {
         flex-direction: column;
       }
+
       .book-cover {
         width: 100%;
         height: 200px;
       }
+
+      .filter-bar {
+        gap: 0.5em;
+      }
+
+      .filter-btn {
+        padding: 0.4em 0.8em;
+        font-size: 0.9em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 0.5em;
+      }
+
       header h1 {
-        font-size: 2em;
+        font-size: 1.5em;
+      }
+
+      .subtitle {
+        font-size: 0.9em;
+      }
+
+      .search {
+        width: 100%;
+      }
+
+      .search input {
+        width: 100%;
+        padding: 0.5em;
+      }
+
+      .search button {
+        padding: 0.5em 0.8em;
+        font-size: 0.9em;
+      }
+
+      nav a {
+        margin: 0 0.3em;
+        font-size: 0.8em;
+      }
+
+      .content {
+        padding: 0 0.8em;
+        margin: 0.8em auto;
+      }
+
+      .page-title h1 {
+        font-size: 1.5em;
+      }
+
+      .books-grid {
+        grid-template-columns: 1fr;
+        gap: 1em;
+      }
+
+      .book-cover {
+        width: 100%;
+        height: 150px;
+      }
+
+      .book-info {
+        padding: 1em;
+      }
+
+      .book-title {
+        font-size: 1.1em;
+      }
+
+      .book-description {
+        font-size: 0.85em;
+      }
+
+      .filter-bar {
+        gap: 0.4em;
+      }
+
+      .filter-btn {
+        padding: 0.3em 0.6em;
+        font-size: 0.8em;
       }
     }
   </style>
@@ -277,12 +443,12 @@
 <body>
   <header>
     <div class="title-wrapper">
-    <a href="https://hazamashobo.github.io/main/index.html">
-      <h1>狭間書房</h1>
-      <p class="subtitle">Hazama Publishing</p>
-    </a>
-  </div>
-  <div class="search">
+      <a href="https://hazamashobo.github.io/main/index.html">
+        <h1>狭間書房</h1>
+        <p class="subtitle">Hazama Publishing</p>
+      </a>
+    </div>
+    <div class="search">
       <form action="https://hazamashobo.github.io/result/" method="get">
         <input type="text" id="searchInput" name="q" placeholder="キーワード入力">
         <button type="submit">検索</button>
@@ -314,12 +480,12 @@
       <!-- Book 1 -->
       <div class="book-card" data-genre="ronbun">
         <div class="book-cover">
-          <img src="gazou/hyoushi2.png" alt="美術の穴" onerror="this.style.display='none'; this.parentElement.innerHTML='境界線の<br>向こう側';">
+          <img src="gazou/hyoushi2.png" alt="美術の穴">
         </div>
         <div class="book-info">
           <h3 class="book-title">美術の穴</h3>
           <p class="book-author">著者: 乾　真紀子</p>
-          <p class="book-description">美術鑑賞の新常識を提唱する、狭間書房の初回出版作品。10万部突破のベストセラー作品。</p>
+          <p class="book-description">美術鑑賞の新常識を啓蒙する、狭間書房の初出版にして10万部突破のベストセラー作品。</p>
           <div class="book-meta">
             <span class="book-price">¥1,800</span>
             <span class="book-genre">論文</span>
@@ -330,7 +496,7 @@
       <!-- Book 2 -->
       <div class="book-card" data-genre="ronbun">
         <div class="book-cover">
-           <img src="gazou/hyoushi3.png" alt="RPGさんぽ入門">
+          <img src="gazou/hyoushi3.png" alt="RPGさんぽ入門">
         </div>
         <div class="book-info">
           <h3 class="book-title">RPGさんぽ入門</h3>
@@ -346,12 +512,12 @@
       <!-- Book 3 -->
       <div class="book-card" data-genre="shosetu">
         <div class="book-cover">
-          <img src="gazou/hyoushi4.png" alt="コンクールとコンテスト">
+          <img src="gazou/hyoushi4.png" alt="コンクール＆コンテスト">
         </div>
         <div class="book-info">
-          <h3 class="book-title">コンクールとコンテスト</h3>
+          <h3 class="book-title">コンクール＆コンテスト</h3>
           <p class="book-author">著者: 石田まゆこ</p>
-          <p class="book-description">ここは鈴風高校。吹奏楽部部長の誠と美術部部長の綾香は幼馴染。しかしある日突然誠が放った一言で大事件が勃発するー!?</p>
+          <p class="book-description">ここは鈴風高校。吹奏楽部部長の誠と美術部部長の綾香は幼馴染。しかし、ある日突然誠が放った一言で大事件が勃発する～!?</p>
           <div class="book-meta">
             <span class="book-price">¥2,200</span>
             <span class="book-genre">小説</span>
@@ -367,7 +533,7 @@
         <div class="book-info">
           <h3 class="book-title">鳥の目 虫の目 魚の目</h3>
           <p class="book-author">著者: Joen Doe</p>
-          <p class="book-description">「プロデュース力は一人旅で育つ」。アメリカの経済学者、ジョン・ドゥが提唱するの全てがこの一冊に。</p>
+          <p class="book-description">「プロデュース力は一人旅で育つ」。アメリカの経済学者、ジョン・ドゥが提唱する全てがこの一冊に。</p>
           <div class="book-meta">
             <span class="book-price">¥1,400</span>
             <span class="book-genre">論文</span>
@@ -375,7 +541,7 @@
         </div>
       </div>
 
-      <!-- Book 5 -光輪-Nimbus- (クリック可能) -->
+      <!-- Book 5 -->
       <div class="book-card clickable" data-genre="essei" id="yarikiru-book" onclick="countClick()">
         <div class="book-cover">
           <img src="gazou/hyoushi6-2.png" alt="光輪-Nimbus-">
@@ -383,7 +549,7 @@
         <div class="book-info">
           <h3 class="book-title">光輪-Nimbus-</h3>
           <p class="book-author">著者: 大木風莉</p>
-          <p class="book-description">小さくても、大きくても、丸くても、光っていても、光っていなくても、空でも、それはそれは導きの光。</p>
+          <p class="book-description">小さくても、大きくても、丸くても、光ってていても、光ってていなくても、空でも、それは導きの光。</p>
           <div class="book-meta">
             <span class="book-price">¥1,519</span>
             <span class="book-genre">エッセイ</span>
@@ -399,7 +565,7 @@
         <div class="book-info">
           <h3 class="book-title">What is Brown noise?</h3>
           <p class="book-author">著者: 青山　一</p>
-          <p class="book-description">何かと「生きづらさ」を感じることの多い時代。心と体と脳を全部リセットできる「ブラウンノイズ」とは?音源がダウンロードできるQRコードつき。</p>
+          <p class="book-description">何か「生きづらさ」を感じることの多い時代。心と体と脳を全部リセットできる「ブラウンノイズ」とは?音源がダウンロードできるQRコード付き。</p>
           <div class="book-meta">
             <span class="book-price">¥1,680</span>
             <span class="book-genre">論文</span>
@@ -442,12 +608,12 @@
       <!-- Book 9 -->
       <div class="book-card" data-genre="photo">
         <div class="book-cover">
-          <img src="gazou/hyoushi10.png" alt="ARGさんぽ概説">
+          <img src="gazou/hyoushi10.png" alt="RPGさんぽ概説">
         </div>
         <div class="book-info">
           <h3 class="book-title">RPGさんぽ概説</h3>
           <p class="book-author">著者: らんたな</p>
-          <p class="book-description">狭間書房の大ヒット作「ARGさんぽ」シリーズ第二弾!「とうとう概説まで来てしまいました!次どうしよう!」(らんたな)</p>
+          <p class="book-description">狭間書房の大ヒット作「ARGさんぽ」シリーズ第二弾!とうとう概説まで来てしまいました!次どうしよう!</p>
           <div class="book-meta">
             <span class="book-price">¥1,500</span>
             <span class="book-genre">写真集</span>
@@ -458,12 +624,12 @@
       <!-- Book 10 -->
       <div class="book-card" data-genre="photo">
         <div class="book-cover">
-          <img src="gazou/hyoushi11.png" alt="日本の鏡スポット">
+          <img src="gazou/hyoushi11.png" alt="日本の顔スポット">
         </div>
         <div class="book-info">
           <h3 class="book-title">日本の鏡スポット</h3>
-          <p class="book-author">写真: 髙橋　紘</p>
-          <p class="book-description">「鏡」に注目した世界初の写真集。そこに映るのは果たして虚偽か、真実か。</p>
+          <p class="book-author">写真: 高橋　紘</p>
+          <p class="book-description">「鏡」に注目した世界初の写真集。そこに映るのは果たして虚実か、真実か。</p>
           <div class="book-meta">
             <span class="book-price">¥1,720</span>
             <span class="book-genre">写真集</span>
@@ -474,7 +640,7 @@
       <!-- Book 11 -->
       <div class="book-card" data-genre="shosetu">
         <div class="book-cover">
-           <img src="gazou/hyoushi12.png" alt="千年幸福論">
+          <img src="gazou/hyoushi12.png" alt="千年幸福論">
         </div>
         <div class="book-info">
           <h3 class="book-title">千年幸福論</h3>
@@ -495,7 +661,7 @@
         <div class="book-info">
           <h3 class="book-title">カレーのご飯は冷たい方が美味しい</h3>
           <p class="book-author">著者: 高柳　凪</p>
-          <p class="book-description">「お団子の串途中で折れたらいいのに」「寝れないときは頭の向きを逆にするといい」生活の中で得た気づきをまとめたエッセイ集!</p>
+          <p class="book-description">「お団子の串途中で折れたらいいのに」「眠れないときは頭の向きを逆にするといい」、生活の中で得た気づきをまとめたエッセイ集!</p>
           <div class="book-meta">
             <span class="book-price">¥2,300</span>
             <span class="book-genre">エッセイ</span>
@@ -527,7 +693,7 @@
         <div class="book-info">
           <h3 class="book-title">花火禁止区域ができるまで</h3>
           <p class="book-author">著者: 日野　光</p>
-          <p class="book-description">全国の「花火禁止区域」10,000箇所をめぐるフィールドワークを通してわかったある共通点とは。</p>
+          <p class="book-description">全国の「花火禁止区域」10,000箇所を巡るフィールドワークを通じてわかった共通点とは。</p>
           <div class="book-meta">
             <span class="book-price">¥1,800</span>
             <span class="book-genre">論文</span>
@@ -536,14 +702,14 @@
       </div>
 
       <!-- Book 15 -->
-     <div class="book-card" data-genre="ronbun">
+      <div class="book-card" data-genre="ronbun">
         <div class="book-cover">
-           <img src="gazou/hyoushi1.png" alt="遅刻しないために">
+          <img src="gazou/hyoushi1.png" alt="配嫌しないために">
         </div>
         <div class="book-info">
           <h3 class="book-title">遅刻しないために</h3>
           <p class="book-author">著者: 大原　洋一</p>
-          <p class="book-description">時間にルーズになってきている!態度が大きくなっているサインかも…!?脳科学の観点から「遅刻」について深掘りする。</p>
+          <p class="book-description">時間にルーズになってきている!態度が大きくなってきているサインかも…!?脳科学の観点から「遅刻」について深掘りする。</p>
           <div class="book-meta">
             <span class="book-price">¥1,650</span>
             <span class="book-genre">論文</span>
@@ -560,7 +726,6 @@
   <script>
     let clickCount = 0;
 
-    // やり切る力の育て方のクリックカウント
     function countClick() {
       clickCount++;
       console.log(`クリック回数: ${clickCount}`);
@@ -570,16 +735,13 @@
       }
     }
 
-    // フィルター機能
     function filterBooks(genre) {
       const cards = document.querySelectorAll('.book-card');
       const buttons = document.querySelectorAll('.filter-btn');
       
-      // ボタンのアクティブ状態を更新
       buttons.forEach(btn => btn.classList.remove('active'));
       event.target.classList.add('active');
       
-      // カードの表示/非表示を切り替え
       cards.forEach(card => {
         if (genre === 'all' || card.dataset.genre === genre) {
           card.style.display = 'flex';
