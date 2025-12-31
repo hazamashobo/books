@@ -364,6 +364,19 @@
         font-size: 0.9em;
       }
     }
+    /* PDFリンク */
+.book-description .pdf-link {
+  color: inherit;                 /* 文字色は本文と同じ */
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  font-weight: bold;
+}
+
+/* ホバー時（気づかせる程度） */
+.book-description .pdf-link:hover {
+  opacity: 0.7;
+}
 
     @media (max-width: 480px) {
       header {
@@ -677,7 +690,10 @@
         <div class="book-info">
           <h3 class="book-title">LIMINAL SPACE 100</h3>
           <p class="book-author">著者: 内田　玲央</p>
-          <p class="book-description">近年注目が集まる「Liminal space」を集めた世界初の写真集。あなたもきっと「狭間」の虜になる。</p>
+          <p class="book-description">
+  近年注目が集まる「Liminal space」を集めた世界初の写真集。
+  今なら<a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:73084728-d2af-412c-9e11-29dc237c7aaef" class="pdf-link">PDF</a>で閲覧可能です。
+</p>
           <div class="book-meta">
             <span class="book-price">¥1,800</span>
             <span class="book-genre">調査書集</span>
@@ -704,7 +720,7 @@
       <!-- Book 15 -->
       <div class="book-card" data-genre="ronbun">
         <div class="book-cover">
-          <img src="gazou/hyoushi1.png" alt="配嫌しないために">
+          <img src="gazou/hyoushi1.png" alt="遅刻しないために">
         </div>
         <div class="book-info">
           <h3 class="book-title">遅刻しないために</h3>
